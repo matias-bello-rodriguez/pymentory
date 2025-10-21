@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export type ToastType = 'success' | 'error' | 'warning' | 'info';
 
