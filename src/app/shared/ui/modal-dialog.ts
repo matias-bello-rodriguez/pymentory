@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PymButtonComponent } from './button';
 
 @Component({
   selector: 'pym-modal',
@@ -61,7 +63,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule, PymButtonComponent]
 })
 export class PymModalComponent {
   @Input() isOpen: boolean = false;

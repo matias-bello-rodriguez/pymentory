@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pym-input',
@@ -28,7 +29,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           [placeholder]="placeholder"
           [disabled]="disabled"
           [readonly]="readonly"
-          [maxlength]="maxLength"
+          [attr.maxlength]="maxLength"
           [min]="min"
           [max]="max"
           [step]="step"
@@ -89,7 +90,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymInputComponent implements ControlValueAccessor {
   @Input() label: string = '';
@@ -115,7 +116,7 @@ export class PymInputComponent implements ControlValueAccessor {
   @Output() focus = new EventEmitter<void>();
   @Output() blur = new EventEmitter<void>();
 
-  value: string = '';
+  @Input() value: string = '';
 
   // ControlValueAccessor implementation
   private onChange = (value: string) => {};

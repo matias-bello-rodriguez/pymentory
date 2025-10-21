@@ -1,0 +1,136 @@
+<div class="auth-form">
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <h2 class="text-xl font-semibold text-gray-900 mb-2">
+      Crear Cuenta
+    </h2>
+    <p class="text-gray-600">
+      Completa los datos para registrarte
+    </p>
+  </div>
+
+  <!-- Success Alert -->
+  <pym-alert
+    *ngIf="registerSuccess"
+    type="success"
+    [dismissible]="true"
+    (dismissed)="clearSuccess()"
+    class="mb-4"
+  >
+    {{ registerSuccess }}
+  </pym-alert>
+
+  <!-- Error Alert -->
+  <pym-alert
+    *ngIf="registerError"
+    type="error"
+    [dismissible]="true"
+    (dismissed)="clearError()"
+    class="mb-4"
+  >
+    {{ registerError }}
+  </pym-alert>
+
+  <!-- Register Form -->
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    
+    <!-- Name Fields -->
+    <div class="grid grid-cols-2 gap-4">
+      <pym-input
+        label="Nombre"
+        type="text"
+        placeholder="Juan"
+        [required]="true"
+        [errorText]="getFieldError('firstName')"
+        formControlName="firstName"
+        pymAutoFocus
+      ></pym-input>
+
+      <pym-input
+        label="Apellido"
+        type="text"
+        placeholder="Pérez"
+        [required]="true"
+        [errorText]="getFieldError('lastName')"
+        formControlName="lastName"
+      ></pym-input>
+    </div>
+
+    <!-- Email Input -->
+    <pym-input
+      label="Correo electrónico"
+      type="email"
+      placeholder="tu@email.com"
+      prefixIcon="email"
+      [required]="true"
+      [errorText]="getFieldError('email')"
+      formControlName="email"
+    ></pym-input>
+
+    <!-- Password Input -->
+    <pym-input
+      label="Contraseña"
+      type="password"
+      placeholder="••••••••"
+      prefixIcon="lock"
+      [required]="true"
+      [errorText]="getFieldError('password')"
+      formControlName="password"
+      helperText="Mínimo 8 caracteres"
+    ></pym-input>
+
+    <!-- Confirm Password Input -->
+    <pym-input
+      label="Confirmar contraseña"
+      type="password"
+      placeholder="••••••••"
+      prefixIcon="lock"
+      [required]="true"
+      [errorText]="getFieldError('confirmPassword')"
+      formControlName="confirmPassword"
+    ></pym-input>
+
+    <!-- Terms and Conditions -->
+    <div class="flex items-start">
+      <input 
+        type="checkbox" 
+        formControlName="terms"
+        class="pym-checkbox mt-1 mr-2"
+        id="terms"
+      />
+      <label for="terms" class="text-sm text-gray-600">
+        Acepto los 
+        <a href="/terms" class="pym-text-primary hover:underline">términos y condiciones</a>
+        y la 
+        <a href="/privacy" class="pym-text-primary hover:underline">política de privacidad</a>
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <pym-button
+      type="submit"
+      variant="primary"
+      [fullWidth]="true"
+      [loading]="isLoading"
+      [disabled]="registerForm.invalid"
+      pymRipple
+      class="mt-6"
+    >
+      <span *ngIf="!isLoading">Crear Cuenta</span>
+      <span *ngIf="isLoading">Creando cuenta...</span>
+    </pym-button>
+  </form>
+
+  <!-- Login Link -->
+  <div class="mt-6 text-center">
+    <p class="text-sm text-gray-600">
+      ¿Ya tienes cuenta? 
+      <a 
+        routerLink="/auth/login" 
+        class="pym-text-primary font-medium hover:underline"
+      >
+        Inicia sesión aquí
+      </a>
+    </p>
+  </div>
+</div>

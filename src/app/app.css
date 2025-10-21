@@ -1,0 +1,107 @@
+/* Importar estilos globales de PyVentory */
+@import '../styles.css';
+
+/* 
+ * Estilos específicos del componente App
+ * Estos estilos se aplican solo al componente raíz de la aplicación
+ */
+
+/* Contenedor principal de la aplicación */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--pym-gray-50);
+}
+
+/* Layout principal de la aplicación */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header de la aplicación */
+.app-header {
+  flex-shrink: 0;
+}
+
+/* Contenido principal */
+.app-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Sidebar de navegación */
+.app-sidebar {
+  flex-shrink: 0;
+}
+
+/* Área de contenido */
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Footer de la aplicación */
+.app-footer {
+  flex-shrink: 0;
+  background: white;
+  border-top: 1px solid var(--pym-gray-200);
+  padding: 1rem;
+  text-align: center;
+  color: var(--pym-gray-500);
+  font-size: 0.875rem;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+  }
+  
+  .app-sidebar {
+    order: 2;
+  }
+  
+  .app-content {
+    order: 1;
+    padding: 0.5rem;
+  }
+}
+
+/* Overrides específicos para el componente app */
+.pym-main-layout {
+  background: var(--pym-gray-50);
+}
+
+/* Estados de la aplicación */
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--pym-gray-50);
+}
+
+.app-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Utilidades específicas del app */
+.app-brand {
+  color: var(--pym-primary-500);
+  font-weight: 600;
+}
+
+.app-version {
+  color: var(--pym-gray-400);
+  font-size: 0.75rem;
+}

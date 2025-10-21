@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pym-loading',
@@ -100,7 +101,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymLoadingComponent {
   @Input() type: 'spinner' | 'progress' | 'skeleton' | 'dots' | 'pulse' = 'spinner';

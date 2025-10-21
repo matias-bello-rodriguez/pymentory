@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'success' | 'warning';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -29,7 +30,7 @@ export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     </button>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymButtonComponent {
   @Input() variant: ButtonVariant = 'primary';
@@ -157,7 +158,7 @@ export class PymButtonComponent {
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymButtonGroupComponent {
   @Input() vertical: boolean = false;
@@ -191,7 +192,7 @@ export class PymButtonGroupComponent {
     </button>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymFabComponent {
   @Input() icon: string = 'plus';

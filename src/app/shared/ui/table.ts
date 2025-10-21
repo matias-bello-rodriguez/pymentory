@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { PymPaginationComponent } from './pagination';
 
 export interface TableColumn {
   key: string;
@@ -202,7 +205,7 @@ export interface SortState {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule, FormsModule, PymPaginationComponent]
 })
 export class PymTableComponent {
   @Input() title: string = '';

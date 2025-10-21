@@ -1,4 +1,6 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, HostListener, TemplateRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PymInputComponent } from './input';
 
 export interface DropdownItem {
   id: string;
@@ -76,7 +78,7 @@ export interface DropdownItem {
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymDropdownComponent {
   @Input() items: DropdownItem[] = [];
@@ -175,7 +177,7 @@ export class PymDropdownComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymTooltipComponent {
   @Input() content: string = '';
@@ -260,7 +262,7 @@ export class PymTooltipComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule, PymInputComponent]
 })
 export class PymSearchComponent {
   @Input() placeholder: string = 'Buscar...';

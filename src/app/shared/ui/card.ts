@@ -1,8 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pym-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <div 
       class="pym-card"
@@ -33,9 +36,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
         <ng-content select="[slot=footer]"></ng-content>
       </div>
     </div>
-  `,
-  standalone: true,
-  imports: []
+  `
 })
 export class PymCardComponent {
   @Input() title: string = '';

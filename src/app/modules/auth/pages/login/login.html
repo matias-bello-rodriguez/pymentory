@@ -1,0 +1,101 @@
+<div class="auth-form">
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <h2 class="text-xl font-semibold text-gray-900 mb-2">
+      Iniciar Sesión
+    </h2>
+    <p class="text-gray-600">
+      Ingresa tus credenciales para acceder
+    </p>
+  </div>
+
+  <!-- Error Alert -->
+  <pym-alert
+    *ngIf="loginError"
+    type="error"
+    [dismissible]="true"
+    (dismissed)="clearError()"
+    class="mb-4"
+  >
+    {{ loginError }}
+  </pym-alert>
+
+  <!-- Login Form -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    
+    <!-- Email Input -->
+    <pym-input
+      label="Correo electrónico"
+      type="email"
+      placeholder="tu@email.com"
+      prefixIcon="email"
+      [required]="true"
+      [errorText]="getFieldError('email')"
+      formControlName="email"
+      pymAutoFocus
+    ></pym-input>
+
+    <!-- Password Input -->
+    <pym-input
+      label="Contraseña"
+      type="password"
+      placeholder="••••••••"
+      prefixIcon="lock"
+      [required]="true"
+      [errorText]="getFieldError('password')"
+      formControlName="password"
+    ></pym-input>
+
+    <!-- Remember Me & Forgot Password -->
+    <div class="flex items-center justify-between">
+      <label class="flex items-center">
+        <input 
+          type="checkbox" 
+          formControlName="rememberMe"
+          class="pym-checkbox mr-2"
+        />
+        <span class="text-sm text-gray-600">Recordarme</span>
+      </label>
+      
+      <a 
+        routerLink="/auth/forgot-password" 
+        class="text-sm pym-text-primary hover:underline"
+      >
+        ¿Olvidaste tu contraseña?
+      </a>
+    </div>
+
+    <!-- Submit Button -->
+    <pym-button
+      type="submit"
+      variant="primary"
+      [fullWidth]="true"
+      [loading]="isLoading"
+      [disabled]="loginForm.invalid"
+      pymRipple
+      class="mt-6"
+    >
+      <span *ngIf="!isLoading">Iniciar Sesión</span>
+      <span *ngIf="isLoading">Iniciando sesión...</span>
+    </pym-button>
+  </form>
+
+  <!-- Register Link -->
+  <div class="mt-6 text-center">
+    <p class="text-sm text-gray-600">
+      ¿No tienes cuenta? 
+      <a 
+        routerLink="/auth/register" 
+        class="pym-text-primary font-medium hover:underline"
+      >
+        Regístrate aquí
+      </a>
+    </p>
+  </div>
+
+  <!-- Demo Credentials -->
+  <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+    <p class="text-xs text-gray-500 font-medium mb-1">Credenciales demo:</p>
+    <p class="text-xs text-gray-600">admin@pyventory.com / admin123</p>
+  </div>
+</div>

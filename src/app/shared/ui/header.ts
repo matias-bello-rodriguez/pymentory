@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'pym-header',
@@ -70,7 +72,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
     </header>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule, FormsModule]
 })
 export class PymHeaderComponent {
   @Input() logoUrl: string = '';

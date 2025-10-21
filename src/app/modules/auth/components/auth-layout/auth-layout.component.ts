@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 // Importar componentes UI necesarios
-import { PymCardComponent } from '../../shared/ui/card';
-import { PymLoadingComponent } from '../../shared/ui/loading-progress';
-import { PymAlertComponent } from '../../shared/ui/toast-alert';
+import { PymCardComponent } from '../../../../shared/ui/card';
+import { PymLoadingComponent } from '../../../../shared/ui/loading-progress';
+import { PymAlertComponent } from '../../../../shared/ui/toast-alert';
 
 // Importar directivas útiles para auth
-import { AutoFocusDirective } from '../../shared/directives/auto-focus.directive';
+import { AutoFocusDirective } from '../../../../shared/directives/auto-focus.directive';
 
 /**
  * Layout de autenticación minimalista

@@ -18,7 +18,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         [placeholder]="placeholder"
         [disabled]="disabled"
         [readonly]="readonly"
-        [maxlength]="maxLength"
+        [attr.maxlength]="maxLength"
         [rows]="rows"
         [value]="value"
         class="pym-input resize-none"
