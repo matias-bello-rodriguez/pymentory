@@ -85,7 +85,7 @@ export interface ToastAction {
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymToastComponent {
   @Input() toast!: Toast;
