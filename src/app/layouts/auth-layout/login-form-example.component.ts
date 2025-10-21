@@ -6,8 +6,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { PymInputComponent } from '../../shared/ui/input';
 import { PymButtonComponent } from '../../shared/ui/button';
 import { PymAlertComponent } from '../../shared/ui/toast-alert';
-import { PymLoadingComponent } from '../../shared/ui/loading-progress';
-
 // Importar directivas
 import { AutoFocusDirective } from '../../shared/directives/auto-focus.directive';
 import { RippleDirective } from '../../shared/directives/ripple.directive';
@@ -129,7 +127,6 @@ import { RippleDirective } from '../../shared/directives/ripple.directive';
     PymInputComponent,
     PymButtonComponent,
     PymAlertComponent,
-    PymLoadingComponent,
     AutoFocusDirective,
     RippleDirective
   ]

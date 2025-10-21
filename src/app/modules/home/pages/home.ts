@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { 
   PymCardComponent, 
-  PymButtonComponent
 } from '../../../shared/ui';
 
 interface ModuleCard {
@@ -23,7 +22,7 @@ interface ModuleCard {
   imports: [
     CommonModule,
     PymCardComponent,
-    PymButtonComponent
+    
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],

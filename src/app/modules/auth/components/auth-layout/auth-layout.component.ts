@@ -7,9 +7,6 @@ import { PymCardComponent } from '../../../../shared/ui/card';
 import { PymLoadingComponent } from '../../../../shared/ui/loading-progress';
 import { PymAlertComponent } from '../../../../shared/ui/toast-alert';
 
-// Importar directivas útiles para auth
-import { AutoFocusDirective } from '../../../../shared/directives/auto-focus.directive';
-
 /**
  * Layout de autenticación minimalista
  * 
@@ -31,7 +28,6 @@ import { AutoFocusDirective } from '../../../../shared/directives/auto-focus.dir
     PymCardComponent,
     PymLoadingComponent,
     PymAlertComponent,
-    AutoFocusDirective
   ]
 })
 export class AuthLayoutComponent {

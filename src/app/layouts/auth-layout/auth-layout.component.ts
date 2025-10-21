@@ -31,7 +31,6 @@ import { AutoFocusDirective } from '../../shared/directives/auto-focus.directive
     PymCardComponent,
     PymLoadingComponent,
     PymAlertComponent,
-    AutoFocusDirective
   ]
 })
 export class AuthLayoutComponent {
