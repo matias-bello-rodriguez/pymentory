@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export interface BreadcrumbItem {
   label: string;
@@ -48,7 +49,7 @@ export interface BreadcrumbItem {
     </nav>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymBreadcrumbComponent {
   @Input() items: BreadcrumbItem[] = [];

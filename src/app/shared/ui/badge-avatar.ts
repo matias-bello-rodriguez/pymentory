@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pym-badge',
@@ -30,7 +31,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
     </span>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymBadgeComponent {
   @Input() variant: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' = 'default';
@@ -148,7 +149,7 @@ export class PymBadgeComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymAvatarComponent {
   @Input() src: string = '';
@@ -246,7 +247,7 @@ export class PymAvatarComponent {
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymAvatarGroupComponent {
   @Input() moreCount: number = 0;

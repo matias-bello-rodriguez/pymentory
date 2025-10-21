@@ -231,7 +231,7 @@ export class PymToastContainerComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymAlertComponent {
   @Input() type: ToastType = 'info';

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -87,7 +88,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymPaginationComponent {
   @Input() currentPage: number = 1;

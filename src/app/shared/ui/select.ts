@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -86,7 +87,7 @@ export interface SelectOption {
     }
   ],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymSelectComponent implements ControlValueAccessor {
   @Input() label: string = '';

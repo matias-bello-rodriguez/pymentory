@@ -1,6 +1,7 @@
 
 
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export interface AccordionItem {
   id: string;
@@ -66,7 +67,7 @@ export interface AccordionItem {
     }
   `],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymAccordionComponent {
   @Input() items: AccordionItem[] = [];

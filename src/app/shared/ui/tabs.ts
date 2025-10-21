@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export interface TabItem {
   id: string;
@@ -46,7 +47,7 @@ export interface TabItem {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymTabsComponent {
   @Input() tabs: TabItem[] = [];
@@ -86,7 +87,7 @@ export class PymTabsComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymTabPanelComponent {
   @Input() tabId: string = '';

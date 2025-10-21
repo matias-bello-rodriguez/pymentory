@@ -163,7 +163,7 @@ export class PymLoadingComponent {
     </div>
   `,
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymProgressComponent {
   @Input() value: number = 0;

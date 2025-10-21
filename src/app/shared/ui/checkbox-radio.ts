@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -64,7 +65,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymCheckboxComponent implements ControlValueAccessor {
   @Input() label: string = '';
@@ -188,7 +189,7 @@ export class PymCheckboxComponent implements ControlValueAccessor {
     }
   ],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymRadioComponent implements ControlValueAccessor {
   @Input() label: string = '';

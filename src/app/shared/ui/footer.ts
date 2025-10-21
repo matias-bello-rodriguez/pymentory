@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 export interface FooterLink {
   label: string;
@@ -12,7 +13,7 @@ export interface FooterLink {
   templateUrl: './footer.html',
   styleUrls: ['./footer.css'],
   standalone: true,
-  imports: []
+  imports: [CommonModule]
 })
 export class PymFooterComponent {
   @Input() companyName: string = 'Pymentory';

@@ -170,7 +170,7 @@ export class PymModalComponent {
     </pym-modal>
   `,
   standalone: true,
-  imports: [PymModalComponent]
+  imports: [PymModalComponent, CommonModule]
 })
 export class PymDialogComponent {
   @Input() isOpen: boolean = false;
