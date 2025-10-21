@@ -43,7 +43,7 @@ import { CommonModule } from '@angular/common';
 
       <!-- Character Count -->
       <p *ngIf="maxLength && showCharCount" class="mt-1 text-xs pym-text-muted text-right">
-        {{ value?.length || 0 }}/{{ maxLength }}
+        {{ value.length || 0 }}/{{ maxLength }}
       </p>
     </div>
   `,
