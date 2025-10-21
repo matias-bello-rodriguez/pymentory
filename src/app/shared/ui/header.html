@@ -1,0 +1,63 @@
+<header class="pym-header">
+  <div class="pym-header__left">
+    <img [src]="logoUrl" [alt]="logoAlt" class="pym-header__logo" />
+    <h1 class="pym-header__title">{{ title }}</h1>
+  </div>
+  
+  <div class="pym-header__right">
+    <!-- Search -->
+    <div class="pym-header__search" *ngIf="showSearch">
+      <input 
+        type="text" 
+        placeholder="Buscar..."
+        class="pym-header__search-input"
+        [(ngModel)]="searchValue"
+        (input)="onSearch(searchValue)"
+      />
+      <svg class="pym-header__search-icon" 
+           fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+    </div>
+
+    <!-- Notifications -->
+    <div class="pym-header__notifications" *ngIf="showNotifications">
+      <button 
+        class="pym-header__notification-btn"
+        (click)="toggleNotifications()"
+        [class.pym-header__notification-btn--active]="notificationsOpen"
+      >
+        <svg class="pym-header__notification-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M15 17h5l-5 5v-5zM11 19H6.5A2.5 2.5 0 014 16.5v-9A2.5 2.5 0 016.5 5h11A2.5 2.5 0 0120 7.5v4"/>
+        </svg>
+        <span *ngIf="notificationCount > 0" class="pym-header__notification-badge">
+          {{ notificationCount > 99 ? '99+' : notificationCount }}
+        </span>
+      </button>
+    </div>
+
+    <!-- User Menu -->
+    <div class="pym-header__user-menu" *ngIf="showUserMenu">
+      <button 
+        class="pym-header__user-btn"
+        (click)="toggleUserMenu()"
+      >
+        <div class="pym-header__avatar">
+          <img *ngIf="userAvatar" [src]="userAvatar" [alt]="userName" class="pym-header__avatar-img" />
+          <span *ngIf="!userAvatar" class="pym-header__avatar-initials">{{ getUserInitials() }}</span>
+        </div>
+        <span class="pym-header__user-name">{{ userName }}</span>
+        <svg class="pym-header__dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+
+      <!-- User Dropdown -->
+      <div *ngIf="userMenuOpen" class="pym-header__dropdown">
+        <ng-content select="[slot=user-menu]"></ng-content>
+      </div>
+    </div>
+  </div>
+</header>

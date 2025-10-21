@@ -1,0 +1,78 @@
+<aside class="pym-sidebar" [class.pym-sidebar--collapsed]="collapsed">
+  <!-- Sidebar Header -->
+  <div class="pym-sidebar__header">
+    <div class="flex items-center justify-between">
+      <h2 *ngIf="!collapsed" class="pym-sidebar__title">{{ title }}</h2>
+      <button 
+        *ngIf="collapsible"
+        class="pym-sidebar__toggle"
+        (click)="toggleCollapse()"
+        [title]="collapsed ? 'Expandir menú' : 'Contraer menú'"
+      >
+        <svg class="w-5 h-5 transition-transform duration-200" [class.rotate-180]="collapsed" 
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="pym-sidebar__nav">
+    <ul class="pym-sidebar__list">
+      <li *ngFor="let item of items; trackBy: trackByItem" class="pym-sidebar__item">
+        <ng-container *ngTemplateOutlet="sidebarItemTemplate; context: { $implicit: item, level: 0 }"></ng-container>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Footer -->
+  <div *ngIf="showFooter" class="pym-sidebar__footer">
+    <ng-content select="[slot=footer]"></ng-content>
+  </div>
+</aside>
+
+<!-- Sidebar Item Template -->
+<ng-template #sidebarItemTemplate let-item let-level="level">
+  <div class="pym-sidebar__item-wrapper" [style.padding-left.px]="level * 16">
+    <button 
+      class="pym-sidebar__link"
+      [class.pym-sidebar__link--active]="item.active"
+      [class.pym-sidebar__link--disabled]="item.disabled"
+      [class.pym-sidebar__link--collapsed]="collapsed"
+      [title]="collapsed ? item.label : ''"
+      (click)="onItemClick(item)"
+      [disabled]="item.disabled"
+    >
+      <!-- Icon -->
+      <div class="pym-sidebar__icon" *ngIf="item.icon">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(item.icon)"/>
+        </svg>
+      </div>
+
+      <!-- Label -->
+      <span *ngIf="!collapsed" class="pym-sidebar__label">{{ item.label }}</span>
+
+      <!-- Badge -->
+      <span *ngIf="!collapsed && item.badge" class="pym-sidebar__badge">{{ item.badge }}</span>
+
+      <!-- Expand/Collapse Arrow for items with children -->
+      <div *ngIf="!collapsed && item.children?.length" class="pym-sidebar__arrow">
+        <svg class="w-4 h-4 transition-transform duration-200" [class.rotate-90]="item.expanded"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </button>
+
+    <!-- Children -->
+    <div *ngIf="!collapsed && item.children?.length && item.expanded" class="pym-sidebar__children">
+      <ul>
+        <li *ngFor="let child of item.children; trackBy: trackByItem" class="pym-sidebar__child-item">
+          <ng-container *ngTemplateOutlet="sidebarItemTemplate; context: { $implicit: child, level: level + 1 }"></ng-container>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

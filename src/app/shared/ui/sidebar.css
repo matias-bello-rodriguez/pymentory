@@ -1,0 +1,198 @@
+/* Sidebar Base Styles */
+.pym-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 280px;
+  transition: all 0.3s ease-in-out;
+  background: var(--pym-bg-surface);
+  border-right: 1px solid var(--pym-border-light);
+  box-shadow: var(--pym-shadow-md);
+}
+
+.pym-sidebar--collapsed {
+  width: 64px;
+}
+
+/* Sidebar Header */
+.pym-sidebar__header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--pym-border-light);
+  background: var(--pym-bg-surface);
+}
+
+.pym-sidebar__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--pym-text-primary);
+}
+
+.pym-sidebar__toggle {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+  background: transparent;
+  color: var(--pym-text-secondary);
+  border: 1px solid var(--pym-border-light);
+  cursor: pointer;
+}
+
+.pym-sidebar__toggle:hover {
+  background: var(--pym-bg-hover);
+  color: var(--pym-text-primary);
+}
+
+/* Navigation */
+.pym-sidebar__nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--pym-spacing-md);
+}
+
+.pym-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pym-sidebar__list > li + li {
+  margin-top: 0.25rem;
+}
+
+.pym-sidebar__item {
+  width: 100%;
+}
+
+.pym-sidebar__item-wrapper {
+  width: 100%;
+}
+
+/* Sidebar Links */
+.pym-sidebar__link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: var(--pym-text-secondary);
+  gap: var(--pym-spacing-sm);
+  cursor: pointer;
+}
+
+.pym-sidebar__link:hover {
+  background: var(--pym-bg-hover);
+  color: var(--pym-text-primary);
+}
+
+.pym-sidebar__link--active {
+  background: var(--pym-primary-50);
+  color: var(--pym-primary-600);
+  font-weight: 500;
+}
+
+.pym-sidebar__link--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pym-sidebar__link--disabled:hover {
+  background: transparent;
+  color: var(--pym-text-secondary);
+}
+
+.pym-sidebar__link--collapsed {
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+/* Icon */
+.pym-sidebar__icon {
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* Label */
+.pym-sidebar__label {
+  flex: 1;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Badge */
+.pym-sidebar__badge {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  background: var(--pym-primary-100);
+  color: var(--pym-primary-700);
+  font-weight: 500;
+}
+
+/* Arrow */
+.pym-sidebar__arrow {
+  flex-shrink: 0;
+  color: var(--pym-text-secondary);
+}
+
+/* Children */
+.pym-sidebar__children {
+  margin-top: 0.25rem;
+}
+
+.pym-sidebar__child-item {
+  width: 100%;
+}
+
+/* Footer */
+.pym-sidebar__footer {
+  padding: 1rem;
+  border-top: 1px solid var(--pym-border-light);
+  background: var(--pym-bg-surface);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pym-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+  }
+
+  .pym-sidebar--open {
+    transform: translateX(0);
+  }
+
+  .pym-sidebar--collapsed {
+    width: 280px;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .pym-sidebar {
+    background: var(--pym-gray-900);
+    border-color: var(--pym-gray-700);
+  }
+
+  .pym-sidebar__header {
+    background: var(--pym-gray-900);
+    border-color: var(--pym-gray-700);
+  }
+
+  .pym-sidebar__footer {
+    background: var(--pym-gray-900);
+    border-color: var(--pym-gray-700);
+  }
+
+  .pym-sidebar__link--active {
+    background: var(--pym-primary-900);
+    color: var(--pym-primary-300);
+  }
+}

@@ -1,0 +1,90 @@
+/* Card Base Styles */
+.pym-card {
+  background: var(--pym-bg-surface);
+  border-radius: var(--pym-radius-lg);
+  padding: var(--pym-spacing-lg);
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Card Variants */
+.pym-card--shadow {
+  box-shadow: var(--pym-shadow-md);
+}
+
+.pym-card--bordered {
+  border-color: var(--pym-border-light);
+  border-width: 2px;
+}
+
+.pym-card--hoverable:hover {
+  box-shadow: var(--pym-shadow-lg);
+  transform: translateY(-1px);
+}
+
+.pym-card--clickable {
+  cursor: pointer;
+}
+
+.pym-card--clickable:hover {
+  box-shadow: var(--pym-shadow-lg);
+  border-color: var(--pym-primary-200);
+}
+
+/* Card Header */
+.pym-card__header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--pym-border-light);
+}
+
+.pym-card__header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pym-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--pym-text-primary);
+  margin: 0;
+}
+
+.pym-card__subtitle {
+  font-size: 0.875rem;
+  color: var(--pym-text-secondary);
+  margin: 0.25rem 0 0 0;
+}
+
+/* Card Content */
+.pym-card__content {
+  color: var(--pym-text-primary);
+}
+
+/* Card Footer */
+.pym-card__footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--pym-border-light);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .pym-card {
+    background: var(--pym-gray-800);
+    border-color: var(--pym-gray-600);
+  }
+
+  .pym-card__header {
+    border-color: var(--pym-gray-600);
+  }
+
+  .pym-card__footer {
+    border-color: var(--pym-gray-600);
+  }
+
+  .pym-card--clickable:hover {
+    border-color: var(--pym-primary-400);
+  }
+}

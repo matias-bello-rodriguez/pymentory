@@ -1,0 +1,29 @@
+<div 
+  class="pym-card"
+  [class]="additionalClasses"
+  [ngClass]="{
+    'pym-card--shadow': shadow,
+    'pym-card--bordered': bordered,
+    'pym-card--hoverable': hoverable,
+    'pym-card--clickable': clickable
+  }"
+>
+  <!-- Header -->
+  <div *ngIf="title || hasHeaderContent" class="pym-card__header">
+    <div class="pym-card__header-content">
+      <h3 *ngIf="title" class="pym-card__title">{{ title }}</h3>
+      <ng-content select="[slot=header]"></ng-content>
+    </div>
+    <p *ngIf="subtitle" class="pym-card__subtitle">{{ subtitle }}</p>
+  </div>
+
+  <!-- Content -->
+  <div class="pym-card__content">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Footer -->
+  <div *ngIf="hasFooterContent" class="pym-card__footer">
+    <ng-content select="[slot=footer]"></ng-content>
+  </div>
+</div>

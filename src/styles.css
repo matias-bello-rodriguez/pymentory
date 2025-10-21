@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /*
 	Paleta 'pym' primaria tipo ERP para el ERP.

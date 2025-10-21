@@ -6,37 +6,8 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div 
-      class="pym-card"
-      [class]="additionalClasses"
-      [ngClass]="{
-        'pym-shadow': shadow,
-        'border-2': bordered,
-        'hover:shadow-md': hoverable,
-        'cursor-pointer': clickable
-      }"
-    >
-      <!-- Header -->
-      <div *ngIf="title || hasHeaderContent" class="mb-4 pb-3 border-b border-gray-200">
-        <div class="flex items-center justify-between">
-          <h3 *ngIf="title" class="text-lg font-semibold text-gray-900">{{ title }}</h3>
-          <ng-content select="[slot=header]"></ng-content>
-        </div>
-        <p *ngIf="subtitle" class="text-sm pym-text-muted mt-1">{{ subtitle }}</p>
-      </div>
-
-      <!-- Content -->
-      <div class="card-content">
-        <ng-content></ng-content>
-      </div>
-
-      <!-- Footer -->
-      <div *ngIf="hasFooterContent" class="mt-4 pt-3 border-t border-gray-200">
-        <ng-content select="[slot=footer]"></ng-content>
-      </div>
-    </div>
-  `
+  templateUrl: './card.html',
+  styleUrls: ['./card.css']
 })
 export class PymCardComponent {
   @Input() title: string = '';

@@ -1,0 +1,25 @@
+<footer class="pym-footer">
+  <div class="pym-footer__content">
+    <!-- Copyright -->
+    <div class="pym-footer__copyright">
+      © {{ currentYear }} {{ companyName }}. {{ copyrightText }}
+    </div>
+
+    <!-- Version -->
+    <div class="pym-footer__version" *ngIf="version">
+      Versión {{ version }}
+    </div>
+
+    <!-- Links -->
+    <div class="pym-footer__links" *ngIf="links.length > 0">
+      <a 
+        *ngFor="let link of links"
+        [href]="link.url"
+        [target]="link.external ? '_blank' : '_self'"
+        class="pym-footer__link"
+      >
+        {{ link.label }}
+      </a>
+    </div>
+  </div>
+</footer>

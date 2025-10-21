@@ -1,0 +1,166 @@
+/* Input Field Container */
+.pym-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Label */
+.pym-input-field__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--pym-text-primary);
+}
+
+.pym-input-field__required {
+  color: var(--pym-error-500);
+  margin-left: 0.25rem;
+}
+
+/* Input Container */
+.pym-input-field__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Prefix Icon */
+.pym-input-field__prefix-icon {
+  position: absolute;
+  left: 0.75rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Suffix Container */
+.pym-input-field__suffix {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Icons */
+.pym-input-field__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--pym-text-secondary);
+}
+
+/* Clear Button */
+.pym-input-field__clear-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--pym-text-secondary);
+  transition: color 0.2s;
+}
+
+.pym-input-field__clear-btn:hover {
+  color: var(--pym-text-primary);
+}
+
+.pym-input-field__clear-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Input Base Styles */
+.pym-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--pym-border-light);
+  border-radius: var(--pym-radius-md);
+  background: var(--pym-bg-surface);
+  color: var(--pym-text-primary);
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pym-input:focus {
+  outline: none;
+  border-color: var(--pym-primary-500);
+  box-shadow: 0 0 0 3px var(--pym-primary-100);
+}
+
+.pym-input:disabled {
+  background: var(--pym-bg-disabled);
+  color: var(--pym-text-disabled);
+  cursor: not-allowed;
+}
+
+.pym-input:read-only {
+  background: var(--pym-bg-muted);
+}
+
+.pym-input::placeholder {
+  color: var(--pym-text-secondary);
+}
+
+/* Input with Icons */
+.pym-input--with-prefix {
+  padding-left: 2.5rem;
+}
+
+.pym-input--with-suffix {
+  padding-right: 2.5rem;
+}
+
+/* Input States */
+.pym-input--error {
+  border-color: var(--pym-error-500);
+}
+
+.pym-input--error:focus {
+  border-color: var(--pym-error-500);
+  box-shadow: 0 0 0 3px var(--pym-error-100);
+}
+
+.pym-input--success {
+  border-color: var(--pym-success-500);
+}
+
+.pym-input--success:focus {
+  border-color: var(--pym-success-500);
+  box-shadow: 0 0 0 3px var(--pym-success-100);
+}
+
+/* Help Text */
+.pym-input-field__help {
+  font-size: 0.875rem;
+  color: var(--pym-text-secondary);
+  margin: 0;
+}
+
+/* Error Text */
+.pym-input-field__error {
+  font-size: 0.875rem;
+  color: var(--pym-error-500);
+  margin: 0;
+}
+
+/* Character Count */
+.pym-input-field__char-count {
+  font-size: 0.75rem;
+  color: var(--pym-text-secondary);
+  text-align: right;
+  margin: 0;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .pym-input {
+    background: var(--pym-gray-800);
+    border-color: var(--pym-gray-600);
+  }
+
+  .pym-input:disabled {
+    background: var(--pym-gray-700);
+  }
+
+  .pym-input:read-only {
+    background: var(--pym-gray-700);
+  }
+}

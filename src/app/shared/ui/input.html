@@ -1,0 +1,75 @@
+<div class="pym-input-field">
+  <!-- Label -->
+  <label *ngIf="label" class="pym-input-field__label" [for]="inputId">
+    {{ label }}
+    <span *ngIf="required" class="pym-input-field__required">*</span>
+  </label>
+
+  <!-- Input Container -->
+  <div class="pym-input-field__container">
+    <!-- Prefix Icon -->
+    <div *ngIf="prefixIcon" class="pym-input-field__prefix-icon">
+      <svg class="pym-input-field__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(prefixIcon)"/>
+      </svg>
+    </div>
+
+    <!-- Input -->
+    <input
+      [id]="inputId"
+      [type]="type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [attr.maxlength]="maxLength"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [value]="value"
+      class="pym-input"
+      [class.pym-input--with-prefix]="prefixIcon"
+      [class.pym-input--with-suffix]="suffixIcon || clearable"
+      [class.pym-input--error]="hasError"
+      [class.pym-input--success]="hasSuccess"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+      (focus)="onFocus()"
+      (keyup.enter)="onEnter()"
+    />
+
+    <!-- Suffix Icon or Clear Button -->
+    <div *ngIf="suffixIcon || (clearable && value)" class="pym-input-field__suffix">
+      <!-- Clear Button -->
+      <button
+        *ngIf="clearable && value && !disabled"
+        type="button"
+        class="pym-input-field__clear-btn"
+        (click)="clear()"
+      >
+        <svg class="pym-input-field__clear-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      <!-- Suffix Icon -->
+      <svg *ngIf="suffixIcon" class="pym-input-field__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(suffixIcon)"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Help Text -->
+  <p *ngIf="helpText && !errorText" class="pym-input-field__help">
+    {{ helpText }}
+  </p>
+
+  <!-- Error Text -->
+  <p *ngIf="errorText" class="pym-input-field__error">
+    {{ errorText }}
+  </p>
+
+  <!-- Character Count -->
+  <p *ngIf="maxLength && showCharCount" class="pym-input-field__char-count">
+    {{ value?.length || 0 }}/{{ maxLength }}
+  </p>
+</div>

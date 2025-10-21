@@ -5,83 +5,8 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'pym-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <div class="form-field">
-      <!-- Label -->
-      <label *ngIf="label" class="pym-label" [for]="inputId">
-        {{ label }}
-        <span *ngIf="required" class="text-red-500 ml-1">*</span>
-      </label>
-
-      <!-- Input Container -->
-      <div class="relative">
-        <!-- Prefix Icon -->
-        <div *ngIf="prefixIcon" class="absolute inset-y-0 right-0 pl-3 flex items-center pointer-events-none">
-          <svg class="w-5 h-5 pym-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(prefixIcon)"/>
-          </svg>
-        </div>
-
-        <!-- Input -->
-        <input
-          [id]="inputId"
-          [type]="type"
-          [placeholder]="placeholder"
-          [disabled]="disabled"
-          [readonly]="readonly"
-          [attr.maxlength]="maxLength"
-          [min]="min"
-          [max]="max"
-          [step]="step"
-          [value]="value"
-          class="pym-input"
-          [class.pl-10]="prefixIcon"
-          [class.pr-10]="suffixIcon || clearable"
-          [class.pym-input--error]="hasError"
-          [class.pym-input--success]="hasSuccess"
-          (input)="onInput($event)"
-          (blur)="onBlur()"
-          (focus)="onFocus()"
-          (keyup.enter)="onEnter()"
-        />
-
-        <!-- Suffix Icon or Clear Button -->
-        <div *ngIf="suffixIcon || (clearable && value)" class="absolute inset-y-0 right-0 pr-3 flex items-center">
-          <!-- Clear Button -->
-          <button
-            *ngIf="clearable && value && !disabled"
-            type="button"
-            class="text-gray-400 hover:text-gray-600"
-            (click)="clear()"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-          
-          <!-- Suffix Icon -->
-          <svg *ngIf="suffixIcon" class="w-5 h-5 pym-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(suffixIcon)"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Help Text -->
-      <p *ngIf="helpText && !errorText" class="mt-1 text-sm pym-text-muted">
-        {{ helpText }}
-      </p>
-
-      <!-- Error Text -->
-      <p *ngIf="errorText" class="mt-1 text-sm pym-danger">
-        {{ errorText }}
-      </p>
-
-      <!-- Character Count -->
-      <p *ngIf="maxLength && showCharCount" class="mt-1 text-xs pym-text-muted text-right">
-        {{ value?.length || 0 }}/{{ maxLength }}
-      </p>
-    </div>
-  `,
+  templateUrl: './input.html',
+  styleUrls: ['./input.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
