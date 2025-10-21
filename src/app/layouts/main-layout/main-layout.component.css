@@ -1,0 +1,192 @@
+/* Main Layout Container */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* Header Styles */
+.main-layout pym-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Main Container - Sidebar + Content */
+.main-layout-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.main-layout-container pym-sidebar {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 64px); /* Ajustar según altura del header */
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  transition: width 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+}
+
+/* Breadcrumb Container */
+.breadcrumb-container {
+  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+}
+
+/* Footer */
+.main-layout pym-footer {
+  margin-top: auto;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-layout-container {
+    flex-direction: column;
+  }
+  
+  .main-layout-container pym-sidebar {
+    height: auto;
+    position: relative;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 0.75rem;
+  }
+}
+
+/* Sidebar Collapsed State */
+.main-layout-container pym-sidebar.collapsed {
+  width: 4rem;
+}
+
+/* Content adjustment when sidebar is collapsed */
+.main-layout-container:has(pym-sidebar.collapsed) .content {
+  margin-left: 0;
+}
+
+/* Smooth transitions */
+.content {
+  transition: margin-left 0.3s ease;
+}
+
+/* Custom scrollbar for content area */
+.content {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading state */
+.main-layout.loading {
+  pointer-events: none;
+}
+
+.main-layout.loading::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+  .main-layout {
+    background-color: #0f172a;
+  }
+  
+  .main-layout pym-header,
+  .main-layout-container pym-sidebar,
+  .main-layout pym-footer {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .content {
+    background-color: #0f172a;
+  }
+}
+
+/* Print styles */
+@media print {
+  .main-layout pym-header,
+  .main-layout-container pym-sidebar,
+  .main-layout pym-footer {
+    display: none;
+  }
+  
+  .main-layout-container {
+    flex-direction: column;
+  }
+  
+  .content {
+    padding: 0;
+    background: white;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .main-layout pym-header,
+  .main-layout-container pym-sidebar,
+  .main-layout pym-footer {
+    border-width: 2px;
+    border-color: #000;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .main-layout-container pym-sidebar,
+  .content {
+    transition: none;
+  }
+}
