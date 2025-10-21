@@ -118,7 +118,7 @@ import { RippleDirective } from '../../shared/directives/ripple.directive';
       <!-- Demo Credentials (solo para desarrollo) -->
       <div class="mt-4 p-3 bg-gray-50 rounded-lg" *ngIf="showDemoCredentials">
         <p class="text-xs text-gray-500 font-medium mb-1">Demo:</p>
-        <p class="text-xs text-gray-600">admin@pyventory.com / admin123</p>
+        <p class="text-xs text-gray-600">admin@Pymentory.com / admin123</p>
       </div>
     </div>
   `,
@@ -158,7 +158,7 @@ export class LoginFormComponent {
         const formValue = this.loginForm.value;
         
         // Demo login logic
-        if (formValue.email === 'admin@pyventory.com' && formValue.password === 'admin123') {
+        if (formValue.email === 'admin@Pymentory.com' && formValue.password === 'admin123') {
           console.log('Login exitoso:', formValue);
           // Aquí redirigiría al dashboard
         } else {

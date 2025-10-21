@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pyventory": {
+    "Pymentory": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pyventory:build:production"
+              "buildTarget": "Pymentory:build:production"
             },
             "development": {
-              "buildTarget": "pyventory:build:development"
+              "buildTarget": "Pymentory:build:development"
             }
           },
           "defaultConfiguration": "development"

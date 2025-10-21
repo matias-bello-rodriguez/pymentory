@@ -15,22 +15,22 @@ export const authRoutes: Routes = [
       {
         path: 'login',
         component: Login,
-        title: 'Iniciar Sesión - PyVentory'
+        title: 'Iniciar Sesión - Pymentory'
       },
       {
         path: 'register',
         component: Register,
-        title: 'Registrarse - PyVentory'
+        title: 'Registrarse - Pymentory'
       },
       {
         path: 'forgot-password',
         component: ForgotPassword,
-        title: 'Recuperar Contraseña - PyVentory'
+        title: 'Recuperar Contraseña - Pymentory'
       },
       {
         path: 'change-password',
         component: ChangePassword,
-        title: 'Cambiar Contraseña - PyVentory'
+        title: 'Cambiar Contraseña - Pymentory'
       },
       {
         path: '',

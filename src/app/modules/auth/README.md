@@ -1,4 +1,4 @@
-# 🔐 Módulo de Autenticación - PyVentory
+# 🔐 Módulo de Autenticación - Pymentory
 
 ## 📁 **Estructura del Módulo**
 

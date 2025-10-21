@@ -37,10 +37,10 @@ import { AutoFocusDirective } from '../../../../shared/directives/auto-focus.dir
 export class AuthLayoutComponent {
   @Input() showLogo: boolean = true;
   @Input() logoUrl: string = '/assets/logo.png';
-  @Input() logoAlt: string = 'PyVentory Logo';
+  @Input() logoAlt: string = 'Pymentory Logo';
   @Input() backgroundImage: string = '';
-  @Input() companyName: string = 'PyVentory';
-  @Input() subtitle: string = 'Sistema de Gestión de Inventario';
+  @Input() companyName: string = 'Pymentory';
+  @Input() subtitle: string = 'Sistema ERP';
   @Input() globalLoading: boolean = false;
   @Input() globalError: string = '';
   @Input() showFooter: boolean = true;

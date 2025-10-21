@@ -34,7 +34,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   imports: []
 })
 export class PymFooterComponent {
-  @Input() companyName: string = 'PyVentory';
+  @Input() companyName: string = 'Pymentory';
   @Input() copyrightText: string = 'Todos los derechos reservados.';
   @Input() version: string = '';
   @Input() links: FooterLink[] = [];

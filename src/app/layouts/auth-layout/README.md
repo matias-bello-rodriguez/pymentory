@@ -44,8 +44,8 @@ El `AuthLayoutComponent` es un layout minimalista diseñado específicamente par
 <app-auth-layout
   [showLogo]="true"
   [logoUrl]="'/assets/logo.png'"
-  [companyName]="'PyVentory'"
-  [subtitle]="'Sistema de Gestión de Inventario'"
+  [companyName]="'Pymentory'"
+  [subtitle]="'Sistema ERP'"
   [backgroundImage]="'/assets/auth-bg.jpg'"
   [globalLoading]="isAuthenticating"
   [globalError]="authError"
@@ -213,8 +213,8 @@ export class RegisterComponent { }
 |-----------|------|---------|-------------|
 | `showLogo` | boolean | true | Mostrar logo en header |
 | `logoUrl` | string | '/assets/logo.png' | URL del logo |
-| `logoAlt` | string | 'PyVentory Logo' | Alt text del logo |
-| `companyName` | string | 'PyVentory' | Nombre de la empresa |
+| `logoAlt` | string | 'Pymentory Logo' | Alt text del logo |
+| `companyName` | string | 'Pymentory' | Nombre de la empresa |
 | `subtitle` | string | 'Sistema de...' | Subtítulo bajo el logo |
 | `backgroundImage` | string | '' | Imagen de fondo |
 | `globalLoading` | boolean | false | Estado de carga global |

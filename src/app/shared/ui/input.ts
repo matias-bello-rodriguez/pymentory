@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
       <!-- Input Container -->
       <div class="relative">
         <!-- Prefix Icon -->
-        <div *ngIf="prefixIcon" class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <div *ngIf="prefixIcon" class="absolute inset-y-0 right-0 pl-3 flex items-center pointer-events-none">
           <svg class="w-5 h-5 pym-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconPath(prefixIcon)"/>
           </svg>

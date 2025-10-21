@@ -52,7 +52,7 @@ export class Login {
         const formValue = this.loginForm.value;
         
         // Demo login logic
-        if (formValue.email === 'admin@pyventory.com' && formValue.password === 'admin123') {
+        if (formValue.email === 'admin@Pymentory.com' && formValue.password === 'admin123') {
           console.log('Login exitoso:', formValue);
           // Aquí redirigiría al dashboard
         } else {
